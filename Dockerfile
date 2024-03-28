@@ -68,10 +68,10 @@ RUN --mount=type=cache,target=/root/.cache \
 
 
 ################################
-# DEVELOPMENT
-# Image used during development / testing
+# DEVELOPMENT-BASE
+# Used to build local + development environments
 ################################
-FROM python-base as development
+FROM python-base as development-base
 ENV FASTAPI_ENV=development
 WORKDIR $PYSETUP_PATH
 
@@ -84,6 +84,30 @@ RUN --mount=type=cache,target=/root/.cache \
     poetry install --with=dev
 
 # will become mountpoint of our code
+WORKDIR /app
+
+EXPOSE 8000
+CMD ["uvicorn", "--host", "0.0.0.0", "--reload", "--factory", "main:create_app"]
+
+################################
+# LOCAL
+# Image used during local development / testing
+################################
+FROM development-base as local
+
+# will become mountpoint of our code
+WORKDIR /app
+
+EXPOSE 8000
+CMD ["uvicorn", "--host", "0.0.0.0", "--reload", "--factory", "main:create_app"]
+
+################################
+# DEVELOPMENT
+# Image used during local development / testing
+################################
+FROM development-base as development
+
+COPY ./src /app/
 WORKDIR /app
 
 EXPOSE 8000

@@ -2,8 +2,7 @@ services:
   api:
     build:
       context: .
-      target: development
-      #target: production
+      target: local
     container_name: fastapi-headstart
     environment:
       PORT: 8000
