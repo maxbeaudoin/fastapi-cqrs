@@ -1,0 +1,14 @@
+services:
+  api:
+    build:
+      context: .
+      target: development
+      #target: production
+    container_name: fastapi-headstart
+    environment:
+      PORT: 8000
+    ports:
+      - '8000:8000'
+    restart: "no"
+    volumes:
+      - ./src:/app
