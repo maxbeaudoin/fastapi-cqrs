@@ -34,4 +34,5 @@ archive.zip
 # macOS
 .DS_Store
 
+# Keep .env secret and out of version control.
 .env

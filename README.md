@@ -19,7 +19,6 @@ Clone the repository:
 ```bash
 git clone https://github.com/maxbeaudoin/fastapi-cqrs.git
 cd fastapi-cqrs
-
 ```
 Activate the virtual environment:
 
@@ -31,6 +30,25 @@ Install dependencies using Poetry:
 ```bash
 poetry install
 ```
+
+## Setup
+
+Before running the application, you need to set up your environment variables. 
+
+Navigate to `/src` directory and create a `.env` file:
+
+```bash
+cd src
+touch .env
+```
+
+Open `.env`, add your API key:
+
+```properties
+API_KEY=your_api_key
+```
+
+Replace `your_api_key` with your actual API key.
 
 ### Running the Application
 
