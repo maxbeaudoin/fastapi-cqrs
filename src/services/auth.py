@@ -1,10 +1,10 @@
 import os
-from fastapi import Depends, HTTPException, status
-from fastapi.security import OAuth2PasswordBearer
+from fastapi import HTTPException, Security, status
+from fastapi.security import APIKeyHeader
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+api_key_header  = APIKeyHeader(name="X-API-Key")
 
-def verify_token(token: str = Depends(oauth2_scheme)):
+def verify_api_key(api_key_header: str = Security(api_key_header)) -> str:
     api_key = os.getenv("API_KEY") # key for a single app 
 
     if not api_key:
@@ -13,10 +13,11 @@ def verify_token(token: str = Depends(oauth2_scheme)):
             detail="API key not set in environment variables",
         )
     
-    if token != api_key:
+    if api_key_header != api_key:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Invalid API key",
             headers={"WWW-Authenticate": "Bearer"},
         )
-    return token
+    
+    return api_key_header
