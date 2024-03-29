@@ -1,6 +1,6 @@
 from typing import Type, TypeVar, Generic
 
-from .query_handler import QueryHandler
+from .request_handler import QueryHandler
 
 TQuery = TypeVar('TQuery')
 TResult = TypeVar('TResult')
