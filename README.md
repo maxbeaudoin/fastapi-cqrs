@@ -74,6 +74,21 @@ Start the services defined in the Docker Compose configuration:
 docker compose up
 ```
 
+**Accessing the API and Documentation**
+
+After starting the server, you can access the API at:
+
+```plaintext
+https://localhost:8000
+```
+
+You can also view the Swagger UI and interact with the API documentation at:
+
+```plaintext
+https://localhost:8000/docs
+```
+
+
 ### Contributing
 Please read CONTRIBUTING.md (TBD) for details on our code of conduct, and the process for submitting pull requests to us.
 
