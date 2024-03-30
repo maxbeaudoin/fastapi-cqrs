@@ -2,7 +2,7 @@ import os
 from fastapi import HTTPException, Security, status
 from fastapi.security import APIKeyHeader
 
-api_key_header  = APIKeyHeader(name="X-API-Key")
+api_key_header  = APIKeyHeader(name="X-API-Key", auto_error=False)
 
 def verify_api_key(api_key_header: str = Security(api_key_header)) -> str:
     api_key = os.getenv("API_KEY") # key for a single app 

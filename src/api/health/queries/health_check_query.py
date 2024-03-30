@@ -1,5 +1,5 @@
 from ..models.health_status import HealthStatus
-from common import QueryHandler
+from infrastructure import QueryHandler
 
 class HealthCheckQuery:
     pass

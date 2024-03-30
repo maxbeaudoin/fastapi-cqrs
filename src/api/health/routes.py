@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, Depends
 
-from common.dependencies import get_mediator
-from common.mediator import Mediator
+from infrastructure.dependencies import get_mediator
+from infrastructure.mediator import Mediator
 from .models import HealthStatus
 from .schemas import HealthResponse
 from .queries import HealthCheckQuery

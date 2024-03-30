@@ -1,8 +1,8 @@
 from unittest.mock import AsyncMock
 from fastapi.testclient import TestClient
 
-from src.common.dependencies import get_mediator
-from src.common.mediator import Mediator
+from src.infrastructure.dependencies import get_mediator
+from src.infrastructure.mediator import Mediator
 from src.main import create_app
 
 

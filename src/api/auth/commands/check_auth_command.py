@@ -1,4 +1,4 @@
-from common.request_handler import CommandHandler
+from infrastructure.request_handler import CommandHandler
 
 class CheckAuthCommand:
     pass
